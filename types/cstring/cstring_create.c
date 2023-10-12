@@ -12,7 +12,7 @@
 
 #include "cstring.h"
 
-static int cstring_malloc(t_cstring **cstring_address)
+static void cstring_malloc(t_cstring **cstring_address)
 {
 	t_cstring	*cstring;
 
@@ -27,18 +27,16 @@ static int cstring_malloc(t_cstring **cstring_address)
 	return (0);
 }
 
-static int cstring_init(t_cstring *cstring)
+static void cstring_init(t_cstring *cstring)
 {
 	if (buffer_append_character(cstring->cstring, '/0') == 1)
 		return (1);
 	return (0);
 }
 
-int cstring_create(t_cstring **cstring_address)
+void cstring_create(t_cstring **cstring_address)
 {
-	if (cstring_malloc(cstring_address) == 1)
-		return (1);
-	if (cstring_init(*cstring_address) == 1)
-		return (1);
+	cstring_malloc(cstring_address);
+	cstring_init(*cstring_address);
 	return (0);
 }

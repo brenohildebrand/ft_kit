@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mode.h                                             :+:      :+:    :+:   */
+/*   ok.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 22:50:20 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/07 22:50:20 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/08 15:25:55 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/08 15:25:55 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MODE_H
-# define MODE_H
+#ifndef OK_H
+# define OK_H
 
-# include "../types/types.h"
+# define foo(a, b, c) atoi(a, b, c)
 
-# define DEBUG_MODE 0x00
-# define RELEASE_MODE 0x01
-
-# ifndef MODE
-#  define MODE DEBUG_MODE
-# endif
+/**
+ * such an amazing function
+*/
+void    atoi();
+void    convert_cstring_to_number();
+void    convert_cstring_to_number();
+void    convert_cstring_to_i32_number();
+void    convert_cstring_to_u32_number();
 
 #endif

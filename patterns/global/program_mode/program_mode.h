@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dbuffer_create.c                                   :+:      :+:    :+:   */
+/*   mode.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 02:11:59 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/08 02:11:59 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/07 22:50:20 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/07 22:50:20 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dbuffer.h"
+#ifndef PROGRAM_MODE_H
+# define PROGRAM_MODE_H
 
-// static t_status	dbuffer_malloc(t_dbuffer **dbuffer_address)
-// {
+# define DEBUG_MODE 0x00
+# define RELEASE_MODE 0x01
 
-// }
+# ifndef MODE
+#  define MODE RELEASE_MODE
+# endif
 
-t_status	dbuffer_create(t_dbuffer **dbuffer_address)
-{
-	t_dbuffer	*dbuffer;
-
-	dbuffer_malloc(dbuffer, noway);
-	dbuffer_initialize(dbuffer, noway);
-}
+#endif

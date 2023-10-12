@@ -13,8 +13,8 @@
 #ifndef CSTRING_H
 # define CSTRING_H
 
-# include "../types/types.h"
-# include "../buffer/buffer.h"
+# include "../primitive/primitive.h"
+# include "../dbuffer/dbuffer.h"
 
 # include <stdlib.h>
 
@@ -22,32 +22,20 @@
  * A cstring represents a string following the C convention. 
 */
 typedef struct s_cstring {
-    t_buffer cstring;
+    t_dbuffer   cstring;
 }   t_cstring;
 
 /**
- * Creates a cstring.
+ * List of public functions.
 */
-int cstring_create(t_cstring **cstring_address);
+void cstring_create(t_cstring **cstring_address);
+void cstring_push_character(t_cstring *cstring);
+void cstring_shift_character(t_cstring *cstring);
+void cstring_clean(t_cstring *cstring);
+void cstring_destroy(t_cstring **cstring_address);
 
 /**
- * Appends character to cstring. 
+ * List of private functions.
 */
-int cstring_append_character(t_cstring *cstring);
-
-/**
- * Insert character in cstring.
-*/
-int cstring_insert_character(t_cstring *cstring);
-
-/**
- * 
-*/
-int cstring_clean(t_cstring *cstring);
-
-/**
- * Destroys a cstring.
-*/
-int cstring_destroy(t_cstring **cstring_address);
 
 #endif

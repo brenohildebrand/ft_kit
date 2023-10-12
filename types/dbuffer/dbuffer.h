@@ -13,11 +13,12 @@
 #ifndef DBUFFER_H
 # define DBUFFER_H
 
-# include "../status/status.h"
 # include "../types/types.h"
+# include "../status/status.h"
+# include "../mode/mode.h"
 
 /**
- * This is the dynamic buffer.
+ * The dynamic buffer type.
 */
 typedef struct s_dbuffer {
     t_u32   used;
@@ -26,28 +27,27 @@ typedef struct s_dbuffer {
 }   t_dbuffer;
 
 /**
- * 
+ * Dbuffer settings.
 */
-t_status    dbuffer_create(t_dbuffer **dbuffer_address);
+
+# define DBUFFER_INITIAL_SIZE 1
+# define DBUFFER_REALLOC_FACTOR 2
 
 /**
- * 
+ * List of public functions.
 */
-t_status    dbuffer_append_character(t_dbuffer *dbuffer);
+
+void    dbuffer_create(t_dbuffer **dbuffer_address);
+void    dbuffer_append_character(t_dbuffer *dbuffer);
+void    dbuffer_append_string(t_dbuffer *dbuffer);
+void    dbuffer_append_cstring(t_dbuffer *dbuffer, t_cstring *cstring);
+void    dbuffer_destroy(t_dbuffer **dbuffer_address);
 
 /**
- * 
+ * List of private functions.
 */
-t_status    dbuffer_append_string(t_dbuffer *dbuffer);
 
-/**
- * 
-*/
-t_status    dbuffer_append_cstring(t_dbuffer *dbuffer, t_cstring *cstring);
+void    dbuffer_realloc(t_dbuffer *dbuffer);
 
-/**
- * 
-*/
-t_status    dbuffer_destroy(t_dbuffer **dbuffer_address);
 
 #endif
