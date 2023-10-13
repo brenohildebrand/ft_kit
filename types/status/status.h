@@ -13,8 +13,7 @@
 #ifndef STATUS_H
 # define STATUS_H
 
-# include "../types/types.h"
-# include "../mode/mode.h"
+# include "../primitive/primitive.h"
 # include "../cstring/cstring.h"
 
 # include <stdlib.h>
@@ -23,57 +22,46 @@
  * The status type.
 */
 typedef struct s_status {
-    t_u8		code;
-    t_u8		action;
-    t_cstring   message;
+    t_u32		code;
+    t_u32		action;
+    t_cstring   *message;
 }   t_status;
 
 /**
  * List of status codes.
 */
 
-# define STATUS_CODE_OK 0x00
-# define STATUS_CODE_KO 0xFF
+# define STATUS_CODE_OK 0x00000000
+# define STATUS_CODE_KO 0x000000FF
 
-# define STATUS_CODE_MALLOC_ERROR 0x01
-# define STATUS_CODE_ASSERT_ERROR 0x02
+# define STATUS_CODE_MALLOC_ERROR 0x00000001
+# define STATUS_CODE_ASSERT_ERROR 0x00000002
 
 /**
  * List of status actions.
 */
 
-# define STATUS_ACTION_NULL 0x00
-# define STATUS_ACTION_EXIT 0x01
-# define STATUS_ACTION_WARN 0x02
+# define STATUS_ACTION_NULL 0x00000000
+# define STATUS_ACTION_EXIT 0x00000001
+# define STATUS_ACTION_WARN 0x00000002
 
 /**
  * The null message.
 */
 
-# define STATUS_MESSAGE_NULL 0
-
-/**
- * List of public functions.
-*/
-
-void    status_act(t_status status);
-void    status_set(t_status status);
-
-/**
- * List of private functions.
-*/
+# define STATUS_MESSAGE_NULL 0x00000000
 
 /**
  * List of predefined status.
 */
 
-# define STATUS_PREDEFINED_EXIT (t_status){\
-			.code = STATUS_CODE_KO, \
-			.action = STATUS_ACTION_EXIT, \
+# define STATUS_OK (t_status){\
+			.code = STATUS_CODE_OK, \
+			.action = STATUS_ACTION_NULL, \
 			.message = STATUS_MESSAGE_NULL}
 
-# define STATUS_PREDEFINED_OK (t_status){\
-			.code = STATUS_CODE_OK, \
+# define STATUS_KO (t_status){\
+			.code = STATUS_CODE_KO, \
 			.action = STATUS_ACTION_NULL, \
 			.message = STATUS_MESSAGE_NULL}
 

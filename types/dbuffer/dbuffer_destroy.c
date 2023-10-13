@@ -12,12 +12,13 @@
 
 #include "dbuffer.h"
 
-void	dbuffer_destroy(t_dbuffer **dbuffer_address)
+t_status	dbuffer_destroy(t_dbuffer **dbuffer_address)
 {
 	t_dbuffer	*dbuffer;
 
 	dbuffer = (*dbuffer_address);
-	free(dbuffer->address);
+	free(dbuffer->content);
 	free(dbuffer);
 	(*dbuffer_address) = 0x0;
+	return (STATUS_OK);
 }

@@ -12,22 +12,20 @@
 
 #include "dbuffer.h"
 
-void	dbuffer_realloc(t_dbuffer *dbuffer)
+t_status	dbuffer_realloc(t_dbuffer *dbuffer)
 {
 	t_u32		i;
-	t_cstring	new_cstring;
+	t_dbuffer	*new_dbuffer;
 
-	new_cstring = malloc(dbuffer->total * DBUFFER_REALLOC_FACTOR);
-	if (new_cstring == NULL)
-	{
-		status_set(STATUS_PREDEFINED_EXIT);
-	}
+	new_dbuffer = malloc(dbuffer->total * DBUFFER_REALLOC_FACTOR);
+	if (new_dbuffer == 0x0)
+		return(STATUS_KO);
 	i = 0;
 	while (i < dbuffer->used)
 	{
-		new_cstring[i] = dbuffer->address[i];
+		new_dbuffer->content[i] = dbuffer->content[i];
 	}
-	free(dbuffer->address);
-	dbuffer->address = new_cstring;
-	status_set(STATUS_PREDEFINED_OK);
+	free(dbuffer->content);
+	dbuffer = new_dbuffer;
+	return (STATUS_OK);
 }
