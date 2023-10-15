@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dbuffer_realloc.c                                  :+:      :+:    :+:   */
+/*   dbuffer_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 03:55:02 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/08 03:55:02 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/08 02:11:59 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/08 02:11:59 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dbuffer.h"
 
-t_status	dbuffer_realloc(t_dbuffer *dbuffer)
+t_status	u8_dbuffer_create(t_dbuffer **dbuffer_address)
 {
-	t_u32		i;
-	t_dbuffer	*new_dbuffer;
+	t_u8_dbuffer	*dbuffer;
 
-	new_dbuffer = malloc(dbuffer->total * DBUFFER_REALLOC_FACTOR);
-	if (new_dbuffer == 0x0)
-		return(STATUS_KO);
-	i = 0;
-	while (i < dbuffer->used)
+	dbuffer = (t_u8_dbuffer *)malloc(sizeof(t_u8_dbuffer));
+	if (dbuffer == 0x0)
+		return (STATUS_KO);
+	dbuffer->content = (t_u8 *)malloc(DBUFFER_INITIAL_TOTAL * sizeof(t_u8));
+	if (dbuffer->content == NULL)
 	{
-		new_dbuffer->content[i] = dbuffer->content[i];
+		free(dbuffer);
+		return (STATUS_KO);
 	}
-	free(dbuffer->content);
-	dbuffer = new_dbuffer;
+	(*dbuffer_address) = dbuffer;
+	dbuffer->used = 0;
+	dbuffer->total = DBUFFER_INITIAL_TOTAL;
 	return (STATUS_OK);
 }

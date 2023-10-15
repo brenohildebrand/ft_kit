@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cstring_append_character.c                         :+:      :+:    :+:   */
+/*   pqueue.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 19:11:38 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/07 19:11:38 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/13 22:11:22 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/13 22:11:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cstring.h"
+#ifndef PQUEUE_H
+# define PQUEUE_H
 
-int	cstring_append_character(t_cstring *cstring, t_u8 character)
-{
-	return (0);
-}
+# include "../primitive/primitive.h"
+
+typedef struct s_pqueue {
+	t_dbuffer	*content;
+	t_llist		*content;
+}	t_pqueue;
+
+#endif

@@ -33,4 +33,6 @@ typedef double		t_f64;
 typedef intptr_t	t_isize;
 typedef uintptr_t	t_usize;
 
+typedef void		t_generic;
+
 #endif

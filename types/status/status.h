@@ -31,38 +31,54 @@ typedef struct s_status {
  * List of status codes.
 */
 
-# define STATUS_CODE_OK 0x00000000
-# define STATUS_CODE_KO 0x000000FF
-
-# define STATUS_CODE_MALLOC_ERROR 0x00000001
-# define STATUS_CODE_ASSERT_ERROR 0x00000002
+enum e_status_code {
+	e_status_code_ok = 0x00000000,
+	e_status_code_ko = 0x000000FF,
+};
 
 /**
  * List of status actions.
 */
 
-# define STATUS_ACTION_NULL 0x00000000
-# define STATUS_ACTION_EXIT 0x00000001
-# define STATUS_ACTION_WARN 0x00000002
+enum e_status_action {
+	e_status_action_null = 0x00000000,
+	e_status_action_exit = 0x00000001,
+	e_status_action_warn = 0x00000002
+};
 
 /**
  * The null message.
 */
 
-# define STATUS_MESSAGE_NULL 0x00000000
+enum e_status_message {
+	e_status_message_null = 0x00000000
+};
 
 /**
  * List of predefined status.
 */
 
 # define STATUS_OK (t_status){\
-			.code = STATUS_CODE_OK, \
-			.action = STATUS_ACTION_NULL, \
-			.message = STATUS_MESSAGE_NULL}
+			.code = ok, \
+			.action = null, \
+			.message = null}
 
 # define STATUS_KO (t_status){\
-			.code = STATUS_CODE_KO, \
-			.action = STATUS_ACTION_NULL, \
-			.message = STATUS_MESSAGE_NULL}
+			.code = ko, \
+			.action = null, \
+			.message = null}
+
+/**
+ * Syntatic sugar for the predefined status.
+*/
+
+# ifndef DO_NOT_USE_STATUS_SYNTATIC_SUGAR
+#  define USE_SYNTATIC_SUGAR
+# endif
+
+# ifdef USE_STATUS_SYNTATIC_SUGAR
+#  define OK STATUS_OK
+#  define KO STATUS_KO
+# endif
 
 #endif
