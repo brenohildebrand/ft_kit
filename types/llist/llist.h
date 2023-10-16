@@ -19,18 +19,14 @@
 # include "../../tools/mem/mem.h"
 
 typedef struct s_llist {
-	t_usize			*content;
+	t_usize			content;
+	t_u32			content_size;
 	struct s_llist	*next;
 }	t_llist;
 
-t_status	llist_create(t_usize address);
+t_status	llist_create(t_llist **address, t_u32 content_size);
 
-t_status	llist_malloc(
-	t_llist	**llist_address, 
-	t_u32	size_of_content
-);
-t_status	llist_init(
-	t_llist	*llist,
-);
+t_status	llist_malloc(t_llist **address, t_u32 content_size);
+t_status	llist_init(t_llist *llist, t_u32 content_size);
 
 #endif

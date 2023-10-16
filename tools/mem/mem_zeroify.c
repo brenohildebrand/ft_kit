@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_set.c                                          :+:      :+:    :+:   */
+/*   mem_zeroify.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 00:34:44 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/15 00:34:44 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/16 00:21:25 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/16 00:21:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mem.h"
 
-status_t	mem_set(t_generic *address, t_u32 size)
-{
+t_status	mem_zeroify(
+	t_usize address,
+	t_u32 size
+){
 	while (size--)
-		((t_u8 *)(address))[size] = 0x0;
-	return (OK);
+		((char *)address)[size] = 0x0;
+	return (ok);
 }

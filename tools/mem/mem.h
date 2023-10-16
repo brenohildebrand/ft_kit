@@ -18,8 +18,7 @@
 
 # include <stdlib.h>
 
-status_t	mem_malloc(t_generic **address, t_u32 size);
-status_t	mem_calloc(t_generic **address, t_u32 nelements, t_u32 esize);
-status_t	mem_set(t_generic *address, t_u32 size);
+t_status	mem_malloc(t_usize address, t_u32 size);
+t_status	mem_zeroify(t_usize address, t_u32 size);
 
 #endif

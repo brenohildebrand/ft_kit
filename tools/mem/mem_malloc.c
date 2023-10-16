@@ -12,12 +12,12 @@
 
 #include "mem.h"
 
-status_t	mem_malloc(
-	t_generic **address, 
+t_status	mem_malloc(
+	t_usize address,
 	t_u32 size
 ){
-	(*address) = malloc(size);
-	if (address == NULL)
+	address = (t_usize)malloc(size);
+	if (address == 0x0)
 		return (ko);
 	return (ok);
 }
