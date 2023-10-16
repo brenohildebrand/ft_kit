@@ -23,3 +23,8 @@ clean:
 
 fclean:
 	$(foreach dir, $(MODULES), $(MAKE) -C $(dir) fclean;)
+
+re:
+	$(foreach dir, $(MODULES), $(MAKE) -C $(dir) re;)
+
+.PHONY: all clean fclean re

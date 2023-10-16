@@ -13,23 +13,30 @@
 CC = gcc
 CFGLAGS = -Wall -Wextra -Werror
 
-RM = rm -f
+BUILD_DIR = ../../build
+INCLUDES_DIR = ../../includes
 
-FUNCTIONS = \
-	llist_create \
-	llist_init \
-	llist_malloc
+LIB = libllist
+STATIC_LIB = $(BUILD_DIR)/$(addsuffix .a, $(LIB))
+SHARED_LIB = $(BUILD_DIR)/$(addsuffix .so, $(LIB))
+INCLUDES = $(INCLUDES_DIR)/llist.h
 
+FUNCTIONS = $(basename $(wildcard *.c))
 SRCS = $(addsuffix .c, $(FUNCTIONS))
 OBJS = $(addsuffix .o, $(FUNCTIONS))
 
-all: libllist.a libllist.so
+all: $(STATIC_LIB) $(SHARED_LIB) $(INCLUDES)
 
-libllist.a: $(OBJS)
-	ar rcs libllist.a $(OBJS)
+$(STATIC_LIB): $(OBJS)
+	mkdir -p $(BUILD_DIR)
+	ar rcs $(STATIC_LIB) $(OBJS)
 
-libllist.so: $(OBJS)
-	gcc -shared -o libllist.so $(OBJS)
+$(SHARED_LIB): $(OBJS)
+	mkdir -p $(BUILD_DIR)
+	gcc -shared -o $(SHARED_LIB) $(OBJS)
+
+$(INCLUDES):
+	cp llist.h $(INCLUDES_DIR)
 
 %.o: %.c
 	$(CC) -o $@ $(CFLAGS) -c $<
@@ -38,6 +45,8 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) libllist.a libllist.so
+	$(RM) $(STATIC_LIB) $(SHARED_LIB) $(INCLUDES)
+
+re: fclean all
 
 .PHONY: all clean fclean re

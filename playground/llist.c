@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "types/llist/llist.h"
+#include "../types/llist/llist.h"
 
-int	main(void)
+t_status	main(void)
 {
-	
+	t_status	status;
+	t_llist		*llist;
+
+	status = llist_create(&llist, 1);
+	if (status == ko)
+		return (ko);
+	return (ok);
 }
