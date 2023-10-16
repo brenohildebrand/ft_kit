@@ -35,7 +35,7 @@ libllist.so: $(OBJS)
 	$(CC) -o $@ $(CFLAGS) -c $<
 
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) libllist.a libllist.so
