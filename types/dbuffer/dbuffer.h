@@ -19,83 +19,11 @@
 # define DBUFFER_INITIAL_TOTAL 1
 # define DBUFFER_REALLOC_FACTOR 2
 
-typedef struct s_i8_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_i8	*content;
-}	t_i8_dbuffer;
-
-typedef struct s_u8_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_u8	*content;
-}	t_u8_dbuffer;
-
-typedef struct s_i16_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_i16	*content;
-}	t_i16_dbuffer;
-
-typedef struct s_u16_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_u16	*content;
-}	t_u16_dbuffer;
-
-typedef struct s_i32_dbuffer {
-	t_u32	used;
-	t_u32	total;
-	t_i32	*content;
-}	t_u32_dbuffer;
-
-typedef struct s_u32_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_u32	*content;
-}	t_u32_dbuffer;
-
-typedef struct s_i64_dbuffer {
-	t_u32	used;
-	t_u32	total;
-	t_i64	*content;
-}	t_i64_dbuffer;
-
-typedef struct s_u64_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_u64	*content;
-}	t_u64_dbuffer;
-
-typedef struct s_f32_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_f32	*content;
-}	t_f32_dbuffer;
-
-typedef struct s_f64_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_f64	*content;
-}	t_f64_dbuffer;
-
-typedef struct s_isize_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_isize	*content;
-}	t_isize_dbuffer;
-
-typedef struct s_usize_dbuffer {
-    t_u32	used;
-    t_u32	total;
-    t_usize	*content;
-}	t_usize_dbuffer;
-
-typedef struct s_custom_dbuffer {
-	t_u32	used;
-	t_u32	total;
-	t_usize	*content;
-}	t_custom_dbuffer;
+typedef struct s_dbuffer {
+	t_u32	element_size;
+	t_u32	number_of_elements;
+    t_u32   max_number_of_elements;
+}	t_dbuffer;
 
 t_status	custom_dbuffer_create(t_custom_dbuffer **custom_dbuffer_address, t_custom_dbuffer_options options);
 t_status	
