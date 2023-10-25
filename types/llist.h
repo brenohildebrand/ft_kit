@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   llist.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:58:28 by brenohildeb       #+#    #+#             */
-/*   Updated: 2023/10/25 14:31:52 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/25 14:08:57 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/25 14:30:09 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#ifndef LLIST_H
+# define LLIST_H
 
-#include "../types/basic.h"
+typedef	struct s_llist	t_llist;
+typedef struct s_llistmetadata	t_llistmetadata;
 
-typedef struct s_string	t_string;
-typedef struct s_stringmetadata	t_stringmetadata;
-
-struct s_string {
-	t_u8				*data;
-	t_stringmetadata	metadata;
+struct s_llistmetadata {
+	t_llist	*next;	
 };
 
-struct s_stringmetadata {
-	// void
+struct s_llist {
+	void			*data;
+	t_llistmetadata	metadata;
 };
 
 #endif

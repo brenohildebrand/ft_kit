@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   avltree.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:58:28 by brenohildeb       #+#    #+#             */
-/*   Updated: 2023/10/25 14:31:52 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/25 16:13:03 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/25 16:58:18 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#ifndef AVLTREE_H
+# define AVLTREE_H
 
-#include "../types/basic.h"
+# include "basic.h"
 
-typedef struct s_string	t_string;
-typedef struct s_stringmetadata	t_stringmetadata;
+# define AVL_EMPTY (0)
 
-struct s_string {
-	t_u8				*data;
-	t_stringmetadata	metadata;
-};
+typedef struct s_usize_avlnode	*t_usize_avltree;
 
-struct s_stringmetadata {
-	// void
+struct s_usize_avlnode {
+	t_usize			*data;
+	t_usize_avltree	*left;
+	t_usize_avltree	*right;	
+	t_u32			height;
 };
 
 #endif

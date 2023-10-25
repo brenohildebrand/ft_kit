@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string.h                                           :+:      :+:    :+:   */
+/*   insert_usize_avltree.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:58:28 by brenohildeb       #+#    #+#             */
-/*   Updated: 2023/10/25 14:31:52 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/25 16:18:26 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/25 17:04:14 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRING_H
-# define STRING_H
+#include "../types/avltree.h"
+#include <stdlib.h>
 
-#include "../types/basic.h"
-
-typedef struct s_string	t_string;
-typedef struct s_stringmetadata	t_stringmetadata;
-
-struct s_string {
-	t_u8				*data;
-	t_stringmetadata	metadata;
-};
-
-struct s_stringmetadata {
-	// void
-};
-
-#endif
+void	insert_usize_avltree(t_usize_avltree *t, t_usize data)
+{
+	if (*t == AVL_EMPTY) 
+	{
+		*t = malloc(sizeof(struct s_usize_avlnode));
+		if (*t == NULL)
+		{
+			// free everything
+		}
+	}
+}
