@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rmanager.h                                         :+:      :+:    :+:   */
+/*   compute_rmanager_size.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:59:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:13:40 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/26 15:22:38 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/26 15:27:42 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RMANAGER_H
-# define RMANAGER_H
+#include "actions.h"
+#include "../types/avltree.h"
 
-#include "avltree.h"
+t_i32	compute_rmanager_size(const t_usize_avltree t)
+{
+	t_i32	size;
+	t_i32	direction;
 
-/**
- * This is actually an AVL tree to manage memory allocations. If an error occur
- * while allocating, free the AVL tree and exit.
-*/
-typedef struct s_usize_avltree	t_rmanager;
-
-#endif
+	if (t == AVL_EMPTY)
+		return (0);
+	else
+	{
+		size = 1;
+		direction = 0;
+		while (direction < 2)
+		{
+			size += get_rmanager_size(t->child[direction]);
+			direction++;
+		}
+		return (size);
+	}
+}

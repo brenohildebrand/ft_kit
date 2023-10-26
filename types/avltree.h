@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:13:03 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/25 16:58:18 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:10:25 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@
 # include "basic.h"
 
 # define AVL_EMPTY (0)
+# define AVL_EMPTY_HEIGHT (-1)
+# define LEFT (0)
+# define RIGHT (1)
+# define TREE_NUM_CHILDREN (2)
 
 typedef struct s_usize_avlnode	*t_usize_avltree;
 
 struct s_usize_avlnode {
-	t_usize			*data;
-	t_usize_avltree	*left;
-	t_usize_avltree	*right;	
-	t_u32			height;
+	t_usize			data;
+	t_usize_avltree	child[2];
+	t_i32			height;
+	t_u32			size;
 };
 
 #endif

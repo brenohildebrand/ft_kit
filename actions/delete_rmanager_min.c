@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rmanager.h                                         :+:      :+:    :+:   */
+/*   delete_rmanager_min.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:59:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:13:40 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/26 15:52:15 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/26 16:02:39 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RMANAGER_H
-# define RMANAGER_H
+#include "actions.h"
+#include "../types/avltree.h"
 
-#include "avltree.h"
+t_usize	delete_rmanager_min(t_usize_avltree *t)
+{
+	t_usize_avltree	to_free;
+	t_usize			retval;
 
-/**
- * This is actually an AVL tree to manage memory allocations. If an error occur
- * while allocating, free the AVL tree and exit.
-*/
-typedef struct s_usize_avltree	t_rmanager;
-
-#endif
+	if ((*t)->child[LEFT])
+	{
+		retval = delete_rmanager_min(&(*t)->child[LEFT]);
+	}
+	else
+	{
+		to_free = *t;
+		retval = to_free->data;
+		*t = to_free->child[RIGHT];
+		free(to_free);
+	}
+	update_rmanager_aggregate(*t);
+	rebalance_rmanager(t);
+	return (retval);
+}

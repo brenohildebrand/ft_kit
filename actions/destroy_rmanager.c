@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rmanager.h                                         :+:      :+:    :+:   */
+/*   destroy_rmanager.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:59:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:13:40 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/26 15:41:35 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/26 15:43:29 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RMANAGER_H
-# define RMANAGER_H
+#include "../types/avltree.h"
 
-#include "avltree.h"
+void	destroy_rmanager(t_usize_avltree *t)
+{
+	t_i32	direction;
 
-/**
- * This is actually an AVL tree to manage memory allocations. If an error occur
- * while allocating, free the AVL tree and exit.
-*/
-typedef struct s_usize_avltree	t_rmanager;
-
-#endif
+	if (*t != AVL_EMPTY)
+	{
+		direction = 0;
+		while (direction < 2)
+		{
+			destroy_rmanager(&(*t)->child[direction]);
+			direction++;
+		}
+		free((*t)->data);
+		free(*t);
+		*t = AVL_EMPTY;
+	}
+}

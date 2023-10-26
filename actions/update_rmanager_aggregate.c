@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rmanager.h                                         :+:      :+:    :+:   */
+/*   update_rmanager_aggregate.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:59:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:13:40 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/26 15:25:58 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/26 15:27:13 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RMANAGER_H
-# define RMANAGER_H
+#include "actions.h"
+#include "../types/avltree.h"
 
-#include "avltree.h"
-
-/**
- * This is actually an AVL tree to manage memory allocations. If an error occur
- * while allocating, free the AVL tree and exit.
-*/
-typedef struct s_usize_avltree	t_rmanager;
-
-#endif
+void	update_rmanager_aggregate(t_usize_avltree t)
+{
+	if (t != AVL_EMPTY)
+	{
+		t->height = compute_rmanager_height(t);
+		t->size = compute_rmanager_size(t);
+	}
+}
