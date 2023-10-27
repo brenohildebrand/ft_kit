@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert_rmanager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:08:39 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:49:47 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:46:11 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	insert_rmanager(t_usize_avltree *t, t_usize data)
 {
 	t_usize_avltree	new;
 
-	if (*t != AVL_EMPTY)
+	if (*t == AVL_EMPTY)
 	{
 		new = malloc(sizeof(*new));
 		if (new == NULL)

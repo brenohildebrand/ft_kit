@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   delete_rmanager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:57:56 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 16:03:50 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:22:10 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../types/avltree.h";
+#include "actions.h"
+#include "../types/avltree.h"
+#include <stdlib.h>
 
 void	delete_rmanager(t_usize_avltree *t, t_usize target)
 {

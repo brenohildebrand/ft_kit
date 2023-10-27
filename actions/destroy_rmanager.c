@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_rmanager.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:41:35 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:43:29 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:23:14 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../types/avltree.h"
+#include <stdlib.h>
 
 void	destroy_rmanager(t_usize_avltree *t)
 {
@@ -24,7 +25,7 @@ void	destroy_rmanager(t_usize_avltree *t)
 			destroy_rmanager(&(*t)->child[direction]);
 			direction++;
 		}
-		free((*t)->data);
+		free((void *)((*t)->data));
 		free(*t);
 		*t = AVL_EMPTY;
 	}
