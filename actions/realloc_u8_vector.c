@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 20:05:40 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:25:51 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/29 01:58:59 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	realloc_u8_vector(t_u8_vector v)
 		new_data[i] = v->data[i];
 		i++;	
 	}
-	free(v->data);
-	// rmanager sfree
+	sfree(v->data);
 	v->data = new_data;
 }

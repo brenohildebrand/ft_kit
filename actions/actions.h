@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:53:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/29 00:35:45 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/29 01:54:39 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_usize_avltree	*get_rmanager(void);
 void			init_u8_vector(t_u8_vector *v);
 void			insert_rmanager(t_usize_avltree *t, t_usize data);
 void			print(t_u8 *s);
-void			push_u8_vector(t_u8_vector v, t_usize data);
+void			push_u8_vector(t_u8_vector v, t_u8 data);
 void			read_file(t_file f, t_u8 *path);
 void			realloc_u8_vector(t_u8_vector v);
 void			rebalance_rmanager(t_usize_avltree *t);

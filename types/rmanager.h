@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   rmanager.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:59:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:13:40 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/29 01:57:45 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RMANAGER_H
 # define RMANAGER_H
 
-#include "avltree.h"
+#include "usize_avltree.h"
 
 /**
  * This is actually an AVL tree to manage memory allocations. If an error occur
