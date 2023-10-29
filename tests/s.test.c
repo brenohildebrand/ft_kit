@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_rmanager_size.c                            :+:      :+:    :+:   */
+/*   s.test.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:22:38 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:51:24 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/28 14:09:25 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/28 17:38:15 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "actions.h"
-#include "../types/usize_avltree.h"
+#include "../actions/actions.h"
+#include <stdio.h>
 
-t_i32	compute_rmanager_size(const t_usize_avltree t)
+int	main(void)
 {
-	t_i32	size;
-	t_i32	direction;
+	t_u8	*string;
 
-	if (t == AVL_EMPTY)
-		return (0);
-	else
-	{
-		size = 1;
-		direction = 0;
-		while (direction < 2)
-		{
-			size += get_rmanager_size(t->child[direction]);
-			direction++;
-		}
-		return (size);
-	}
+	string = smalloc(3 * sizeof(t_u8));
+	string[0] = 'o';
+	string[1] = 'k';
+	string[2] = '\0';
+	
+	sexit(0);
 }

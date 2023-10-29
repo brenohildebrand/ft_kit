@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_rmanager_size.c                            :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:22:38 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:51:24 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/28 15:01:32 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/28 15:55:23 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "actions.h"
-#include "../types/usize_avltree.h"
+#include "../types/basic.h"
+#include <unistd.h>
 
-t_i32	compute_rmanager_size(const t_usize_avltree t)
+void	print(t_u8 *s)
 {
-	t_i32	size;
-	t_i32	direction;
+	t_u32	i;
 
-	if (t == AVL_EMPTY)
-		return (0);
-	else
-	{
-		size = 1;
-		direction = 0;
-		while (direction < 2)
-		{
-			size += get_rmanager_size(t->child[direction]);
-			direction++;
-		}
-		return (size);
-	}
+	i = 0;
+	while (s[i])
+		i++;
+	write(1, s, i);				
+	write(1, "\n", 1);
 }

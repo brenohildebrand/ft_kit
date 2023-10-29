@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   update_rmanager_aggregate.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:25:58 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:27:13 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:52:24 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 
 void	update_rmanager_aggregate(t_usize_avltree t)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_rmanager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:27:52 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:33:29 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:52:14 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 
 /*
 *      y           x 

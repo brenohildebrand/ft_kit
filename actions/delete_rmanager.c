@@ -6,12 +6,12 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:57:56 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 21:22:10 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:51:12 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 #include <stdlib.h>
 
 void	delete_rmanager(t_usize_avltree *t, t_usize target)
@@ -22,6 +22,7 @@ void	delete_rmanager(t_usize_avltree *t, t_usize target)
 	{
 		if ((*t)->data == target)
 		{
+			free((void *)(*t)->data);
 			if ((*t)->child[RIGHT])
 			{
 				(*t)->data = delete_rmanager_min(&(*t)->child[RIGHT]);

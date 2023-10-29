@@ -6,12 +6,12 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:08:39 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 21:46:11 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:52:02 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 #include <stdlib.h>
 
 void	insert_rmanager(t_usize_avltree *t, t_usize data)

@@ -6,12 +6,12 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:52:15 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 21:22:40 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:51:30 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 #include <stdlib.h>
 
 t_usize	delete_rmanager_min(t_usize_avltree *t)

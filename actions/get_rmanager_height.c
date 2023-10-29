@@ -6,11 +6,11 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:13:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 21:23:47 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:51:44 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 
 t_i32	get_rmanager_height(const t_usize_avltree t)
 {

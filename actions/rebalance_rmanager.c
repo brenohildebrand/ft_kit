@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   rebalance_rmanager.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:34:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:41:09 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/28 20:52:10 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/avltree.h"
+#include "../types/usize_avltree.h"
 
 /**
  * The algorithm is:

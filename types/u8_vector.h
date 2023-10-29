@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_rmanager_size.c                            :+:      :+:    :+:   */
+/*   u8_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 15:22:38 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:51:24 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/28 17:44:30 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/28 19:53:58 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "actions.h"
-#include "../types/usize_avltree.h"
+#ifndef DBUFFER_H
+# define DBUFFER_H
 
-t_i32	compute_rmanager_size(const t_usize_avltree t)
-{
-	t_i32	size;
-	t_i32	direction;
+# include "basic.h"
 
-	if (t == AVL_EMPTY)
-		return (0);
-	else
-	{
-		size = 1;
-		direction = 0;
-		while (direction < 2)
-		{
-			size += get_rmanager_size(t->child[direction]);
-			direction++;
-		}
-		return (size);
-	}
-}
+typedef struct s_u8_vector	*t_u8_vector;
+
+struct s_u8_vector {
+	t_u8	*data;
+	t_u32	allocated_size;
+	t_u32	size;
+};
+
+#endif
