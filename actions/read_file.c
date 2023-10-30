@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:02:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/29 02:30:53 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/30 04:49:24 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	read_file(t_file f, t_u8 *path)
 			realloc_u8_vector(f->buffer);
 			continue;
 		}	
-		status = read(fd, f->buffer->data, available);
+		status = read(fd, f->buffer->data + f->buffer->size, available);
 		if (status == 0)
 			break;
 		else if (status == -1)
