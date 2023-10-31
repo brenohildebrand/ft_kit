@@ -6,12 +6,12 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:44:30 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 19:53:58 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:21:02 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DBUFFER_H
-# define DBUFFER_H
+#ifndef U8_VECTOR_H
+# define U8_VECTOR_H
 
 # include "basic.h"
 

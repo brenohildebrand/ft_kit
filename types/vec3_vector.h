@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_u8_vector.c                                   :+:      :+:    :+:   */
+/*   vec3_vector.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:46:13 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:54 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/30 17:20:44 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/30 17:23:56 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "actions.h"
-#include "../types/u8_vector.h"
+#ifndef VEC3_VECTOR_H
+# define VEC3_VECTOR_H
 
-void	push_u8_vector(t_u8_vector v, t_u8 data)
-{
-	if (v->allocated_size < v->size + 1)
-		realloc_u8_vector(v);
-	v->data[v->size] = data;
-	v->size += 1;	
-}
+# include "basic.h"
+# include "../types/vec3.h"
+
+typedef struct s_vec3_vector	*t_vec3_vector;
+
+struct s_vec3_vector {
+	t_vec3	data;
+	t_u32	allocated_size;	
+	t_u32	size;
+};
+
+#endif

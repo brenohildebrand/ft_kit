@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_u8_vector.c                                   :+:      :+:    :+:   */
+/*   destoy_rgba_vector.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:46:13 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:54 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/30 18:58:14 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/30 18:58:51 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/u8_vector.h"
+#include "../types/rgba_vector.h"
 
-void	push_u8_vector(t_u8_vector v, t_u8 data)
+void	destroy_rgba_vector(t_rgba_vector *v)
 {
-	if (v->allocated_size < v->size + 1)
-		realloc_u8_vector(v);
-	v->data[v->size] = data;
-	v->size += 1;	
+	sfree((void *)(*v)->data);
+	sfree((void *)(*v));
+	*v = 0;
 }

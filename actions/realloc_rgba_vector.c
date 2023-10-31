@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_u8_vector.c                                   :+:      :+:    :+:   */
+/*   realloc_rgba_vector.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:46:13 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:54 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/30 18:44:21 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/30 18:55:47 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/u8_vector.h"
+#include "../types/rgba_vector.h"
 
-void	push_u8_vector(t_u8_vector v, t_u8 data)
+void	realloc_rgba_vector(t_rgba_vector v)
 {
-	if (v->allocated_size < v->size + 1)
-		realloc_u8_vector(v);
-	v->data[v->size] = data;
-	v->size += 1;	
+	t_rgba	new_data;
+	t_u32	i;
+
+	new_data = smalloc(2 * v->allocated_size * sizeof(struct s_rgba));
+	i = 0;
+	while (i < v->size)
+	{
+		new_data[i] = v->data[i];
+		i++;
+	}
+	sfree(v->data);
+	v->data = new_data;
+	v->allocated_size *= 2;
 }

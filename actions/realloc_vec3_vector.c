@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_u8_vector.c                                   :+:      :+:    :+:   */
+/*   realloc_vec3_vector.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:46:13 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:54 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/30 17:24:28 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/30 23:36:26 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
-#include "../types/u8_vector.h"
+#include "../types/vec3_vector.h"
 
-void	push_u8_vector(t_u8_vector v, t_u8 data)
+void	realloc_vec3_vector(t_vec3_vector v)
 {
-	if (v->allocated_size < v->size + 1)
-		realloc_u8_vector(v);
-	v->data[v->size] = data;
-	v->size += 1;	
+	t_vec3	new_data;
+	t_u32	i;
+
+	new_data = smalloc(2 * v->allocated_size * sizeof(struct s_vec3));
+	i = 0;
+	while (i < v->size)
+	{
+		new_data[i] = v->data[i];
+		i++;
+	}
+	sfree(v->data);
+	v->data = new_data;
+	v->allocated_size *= 2;	
 }

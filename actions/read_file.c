@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:02:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 04:49:24 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:29:34 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	read_file(t_file f, t_u8 *path)
 	t_i32	status;
 
 	f->path = path;	
-	init_u8_vector(&(f->buffer));
 	fd = open(f->path, O_RDONLY);
 	if (fd == -1)
 		sexit(1);		

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_u8_vector.c                                   :+:      :+:    :+:   */
+/*   vec3_vector.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:46:13 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:54 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/10/30 23:04:11 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/10/30 23:08:12 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "actions.h"
-#include "../types/u8_vector.h"
+#include <assert.h>
+#include "../actions/actions.h"
+#include "../types/vec3_vector.h"
 
-void	push_u8_vector(t_u8_vector v, t_u8 data)
+int	main(void)
 {
-	if (v->allocated_size < v->size + 1)
-		realloc_u8_vector(v);
-	v->data[v->size] = data;
-	v->size += 1;	
+	t_vec3_vector v;
+
+	print("[RUNNING VEC3_VECTOR TEST]");
+	init_vec3_vector(&v);	
+	assert(v->size == 0);
+	assert(v->allocated_size == 16);
+	print("[END]");
 }
