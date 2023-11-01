@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:02:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 13:29:34 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:50:22 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	read_file(t_file f, t_u8 *path)
 	t_i32	status;
 
 	f->path = path;	
-	fd = open(f->path, O_RDONLY);
+	fd = open((char *)f->path, O_RDONLY);
 	if (fd == -1)
 		sexit(1);		
 	while (1)

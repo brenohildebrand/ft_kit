@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:53:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/31 16:49:04 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/01 08:57:29 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../types/rgba.h"
 # include "../types/u8_vector.h"
 # include "../types/usize_avltree.h"
+# include "../types/vec2_vector.h"
 # include "../types/vec2.h"
 # include "../types/vec3_vector.h"
 # include "../types/vec3.h"
