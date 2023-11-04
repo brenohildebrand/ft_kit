@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:53:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/01 08:57:29 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/02 13:47:33 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void			destroy_rmanager(t_usize_avltree *t);
 void			destroy_u8_vector(t_u8_vector *v);
 void			destroy_vec2_vector(t_vec2_vector *v);
 void			destroy_vec3_vector(t_vec3_vector *v);
+t_file			get_it_file(void);
 t_i32			get_rmanager_height(const t_usize_avltree t);
 t_u32			get_rmanager_size(const t_usize_avltree t);
 t_usize_avltree	*get_rmanager(void);
