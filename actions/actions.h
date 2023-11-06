@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:53:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/02 13:47:33 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:24:46 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			init_u8_vector(t_u8_vector *v);
 void			init_vec2_vector(t_vec2_vector *v);
 void			init_vec2(t_vec2 *vec2);
 void			init_vec3_vector(t_vec3_vector *v);
+void			init_vec3(t_vec3 *vec3);
 void			insert_rmanager(t_usize_avltree *t, t_usize data);
 void			print(t_u8 *s);
 void			push_rgba_vector(t_rgba_vector v, struct s_rgba data);

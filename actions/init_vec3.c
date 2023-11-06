@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3.h                                             :+:      :+:    :+:   */
+/*   init_vec3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 04:27:01 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/04 21:32:03 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/04 17:23:39 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/11/04 17:24:29 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC3_H
-# define VEC3_H
+#include "actions.h"
+#include "../types/vec3.h"
 
-# include "basic.h"
-
-typedef struct s_vec3	*t_vec3;
-
-struct s_vec3 {
-	t_f64	x;		
-	t_f64	y;
-	t_f64	z;
-};
-
-#endif
+void	init_vec3(t_vec3 *vec3)
+{
+	(*vec3) = smalloc(sizeof(struct s_vec3));
+	(*vec3)->x = 0;
+	(*vec3)->y = 0;
+	(*vec3)->z = 0;
+}
