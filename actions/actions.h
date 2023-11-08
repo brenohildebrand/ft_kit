@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:53:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/04 17:24:46 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/08 09:51:32 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 t_i32			compute_rmanager_height(const t_usize_avltree t);
 t_i32			compute_rmanager_size(const t_usize_avltree t);
+t_u8			current_file(void);
 t_usize			delete_rmanager_min(t_usize_avltree *t);
 void			delete_rmanager(t_usize_avltree *t, t_usize target);
 void			destroy_rgba_vector(t_rgba_vector *v);
@@ -34,7 +35,9 @@ void			destroy_rmanager(t_usize_avltree *t);
 void			destroy_u8_vector(t_u8_vector *v);
 void			destroy_vec2_vector(t_vec2_vector *v);
 void			destroy_vec3_vector(t_vec3_vector *v);
-t_file			get_it_file(void);
+t_i32			done_file(void);
+t_i32			*get_iteration_file_index(void);
+t_file			*get_iteration_file(void);
 t_i32			get_rmanager_height(const t_usize_avltree t);
 t_u32			get_rmanager_size(const t_usize_avltree t);
 t_usize_avltree	*get_rmanager(void);
@@ -46,6 +49,7 @@ void			init_vec2(t_vec2 *vec2);
 void			init_vec3_vector(t_vec3_vector *v);
 void			init_vec3(t_vec3 *vec3);
 void			insert_rmanager(t_usize_avltree *t, t_usize data);
+t_u8			next_file(void);
 void			print(t_u8 *s);
 void			push_rgba_vector(t_rgba_vector v, struct s_rgba data);
 void			push_u8_vector(t_u8_vector v, t_u8 data);
@@ -61,6 +65,7 @@ void			rotate_rmanager(t_usize_avltree *t, t_i32 direction);
 void			sexit(t_u32 status);
 void			sfree(void *pointer);
 void			*smalloc(t_u32 nbytes);
+t_u8			start_file(t_file file);
 void			update_rmanager_aggregate(t_usize_avltree t);
 
 #endif
