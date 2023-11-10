@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:52:16 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 14:52:56 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:24:31 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 typedef struct s_vec2	*t_vec2;
 
 struct s_vec2 {
-	t_i32	x;
-	t_i32	y;
+	t_f64	x;
+	t_f64	y;
 };
 
 #endif
