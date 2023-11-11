@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_rmanager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:27:52 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:52:14 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:18:58 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,9 @@ void	rotate_rmanager(t_usize_avltree *t, t_i32 direction)
 	y = *t;
 	x = y->child[direction];
 	b = x->child[!direction];
-	
 	*t = x;
 	x->child[!direction] = y;
 	y->child[direction] = b;
-
 	update_rmanager_aggregate(y);
 	update_rmanager_aggregate(x);
 }

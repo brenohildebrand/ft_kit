@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_rgba_vector.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:56:11 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:25:47 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:15:06 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "actions.h"
 #include "../types/rgba_vector.h"
-
 
 void	push_rgba_vector(t_rgba_vector v, struct s_rgba data)
 {

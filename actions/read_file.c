@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 21:02:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/01 15:50:22 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:48:14 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,23 @@
 void	read_file(t_file f, t_u8 *path)
 {
 	t_i32	fd;
-	t_i32	available;
 	t_i32	status;
 
-	f->path = path;	
+	f->path = path;
 	fd = open((char *)f->path, O_RDONLY);
 	if (fd == -1)
-		sexit(1);		
+		sexit(1);
 	while (1)
 	{
-		available = f->buffer->allocated_size - f->buffer->size;
-		if (available == 0)
+		if (f->buffer->allocated_size - f->buffer->size == 0)
 		{
 			realloc_u8_vector(f->buffer);
-			continue;
+			continue ;
 		}	
-		status = read(fd, f->buffer->data + f->buffer->size, available);
+		status = read(fd, f->buffer->data + f->buffer->size, \
+			f->buffer->allocated_size - f->buffer->size);
 		if (status == 0)
-			break;
+			break ;
 		else if (status == -1)
 			sexit(1);
 		else

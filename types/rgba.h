@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   rgba.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 04:28:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 04:32:45 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:08:07 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RGBA_H
 # define RGBA_H
 
-#include "basic.h"
+# include "basic.h"
 
 typedef struct s_rgba	*t_rgba;
 

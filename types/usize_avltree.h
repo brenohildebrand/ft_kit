@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   avltree.h                                          :+:      :+:    :+:   */
+/*   usize_avltree.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:13:03 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/26 15:10:25 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:09:25 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AVLTREE_H
-# define AVLTREE_H
+#ifndef USIZE_AVLTREE_H
+# define USIZE_AVLTREE_H
 
 # include "basic.h"
 

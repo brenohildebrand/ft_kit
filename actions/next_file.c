@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   next_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:43:02 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/08 10:42:42 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:14:32 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_u8	next_file(void)
 
 	it_file = get_iteration_file();
 	index = get_iteration_file_index();
-
 	if (*index + 1 <= (*it_file)->buffer->size)
 		return ((*it_file)->buffer->data[++(*index)]);
 	else

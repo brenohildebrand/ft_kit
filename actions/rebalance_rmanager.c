@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rebalance_rmanager.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:34:05 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:52:10 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:33:27 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,30 @@
  * 	  rotate it above.
  * 	- rotate the taller child above.
 */
+
 void	rebalance_rmanager(t_usize_avltree *t)
 {
-	t_i32	taller_child;
+	t_i32			direction;
+	t_usize_avltree	taller_child;
 
 	if (*t != AVL_EMPTY)
 	{
-		taller_child = 0;
-		while (taller_child < 2)
+		direction = 0;
+		while (direction < 2)
 		{
-			if (get_rmanager_height((*t)->child[taller_child]) >= get_rmanager_height((*t)->child[!taller_child]) + 2)
+			if (get_rmanager_height((*t)->child[direction]) >= \
+				get_rmanager_height((*t)->child[!direction]) + 2)
 			{
-				if (get_rmanager_height((*t)->child[taller_child]->child[!taller_child])
-						> get_rmanager_height((*t)->child[taller_child]->child[taller_child]))
+				taller_child = (*t)->child[direction];
+				if (get_rmanager_height(taller_child->child[!direction]) > \
+				get_rmanager_height(taller_child->child[direction]))
 				{
-					rotate_rmanager(&(*t)->child[taller_child], !taller_child);
+					rotate_rmanager(&(*t)->child[direction], !direction);
 				}
-				rotate_rmanager(t, taller_child);
-				break;
+				rotate_rmanager(t, direction);
+				break ;
 			}
-			taller_child++;
+			direction++;
 		}
 	}
 }

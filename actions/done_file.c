@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   done_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 09:47:47 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/08 10:51:16 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:11:13 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_i32	done_file(void)
 	{
 		*it_file = 0;
 		*index = 0;
-		return (1);		
+		return (1);
 	}
 	return (0);
 }

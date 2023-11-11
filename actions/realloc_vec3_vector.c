@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   realloc_vec3_vector.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:24:28 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/30 23:36:26 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:17:45 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	realloc_vec3_vector(t_vec3_vector v)
 	}
 	sfree(v->data);
 	v->data = new_data;
-	v->allocated_size *= 2;	
+	v->allocated_size *= 2;
 }

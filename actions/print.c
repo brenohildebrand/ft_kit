@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:01:32 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 15:55:23 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:15:48 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	print(t_u8 *s)
 	i = 0;
 	while (s[i])
 		i++;
-	write(1, s, i);				
+	write(1, s, i);
 	write(1, "\n", 1);
 }

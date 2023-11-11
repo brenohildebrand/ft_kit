@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smalloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:45:50 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 16:09:48 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:22:58 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	*smalloc(t_u32 nbytes)
 {
 	void	*pointer;
 
- 	pointer = malloc(nbytes);
- 	if (pointer == NULL)
- 	{
+	pointer = malloc(nbytes);
+	if (pointer == NULL)
+	{
 		destroy_rmanager(get_rmanager());
- 		write(1, "An error ocurred while safe mallocing.\n", 39);		
- 		exit(1);
- 	}
+		write(1, "An error ocurred while safe mallocing.\n", 39);
+		exit(1);
+	}
 	insert_rmanager(get_rmanager(), (t_usize)pointer);
- 	return (pointer);
+	return (pointer);
 }

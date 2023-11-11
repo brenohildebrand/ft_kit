@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_rmanager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:24:37 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:51:54 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:12:49 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_usize_avltree	*get_rmanager(void)
 {
-	static t_usize_avltree rmanager = AVL_EMPTY;
+	static t_usize_avltree	rmanager = AVL_EMPTY;
+
 	return (&rmanager);
 }

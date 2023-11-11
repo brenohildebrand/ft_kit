@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert_rmanager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:08:39 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/10/28 20:52:02 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/11 10:14:17 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	insert_rmanager(t_usize_avltree *t, t_usize data)
 		*t = new;
 	}
 	else if ((*t)->data == data)
-		return;
+		return ;
 	else
 		insert_rmanager(&(*t)->child[(*t)->data < data], data);
 	update_rmanager_aggregate(*t);
