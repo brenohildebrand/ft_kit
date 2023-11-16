@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assert.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 16:23:37 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/11 16:50:59 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:59:46 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,6 @@
 # include "../string/string.h"
 # include <stdlib.h>
 
-void	assert(t_i32 condition, struct s_string message)
-{
-	if (condition == 1)
-	{
-		return ;
-	}
-	else
-	{
-		string_print(&message);
-		exit(1);
-	}
-}
+void	assert(t_i32 condition, struct s_string message);
 
 #endif

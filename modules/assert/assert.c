@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kit.h                                              :+:      :+:    :+:   */
+/*   assert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 16:05:26 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/11 17:08:08 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/16 10:59:51 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/11/16 11:00:03 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	KIT_H
-# define KIT_H
+#include "assert.h"
 
-# include "../modules/assert/assert.h"
-# include "../modules/basic/basic.h"
-# include "../modules/string/string.h"
-
-#endif
+void	assert(t_i32 condition, struct s_string message)
+{
+	if (condition == 1)
+	{
+		return ;
+	}
+	else
+	{
+		string_print(&message);
+		exit(1);
+	}
+}
