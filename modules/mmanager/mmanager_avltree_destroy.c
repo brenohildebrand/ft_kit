@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   avltree_get_height.c                               :+:      :+:    :+:   */
+/*   mmanager_avltree_destroy.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:47:35 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/16 15:48:37 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/16 16:44:12 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/11/16 17:53:32 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "avltree.h"
 
-t_i32	avltree_get_height(const t_avltree t)
+void	mmanager_avltree_destroy(t_avltree *t)
 {
-	if (t == AVL_EMPTY)
+	t_i32	direction;
+
+	if (*t != AVL_EMPTY)
 	{
-		return (AVL_EMPTY_HEIGHT);
-	}
-	else
-	{
-		return (t->height);
+		direction = 0;
+		while (direction < 2)
+		{
+			avltree_destroy(&(*t)->child[direction]);
+			direction++;
+		}
+		free((void *)((*t->data)));
+		free(*t);
+		*t = AVL_EMPTY;
 	}
 }

@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   avltree_update_aggregate.c                         :+:      :+:    :+:   */
+/*   mmanager_avltree_delete_min.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:53:44 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/16 15:55:05 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/16 16:50:37 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/11/16 17:53:42 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "avltree.h"
 
-void	avltree_update_aggregate(t_avltree t)
+void	*mmanager_avltree_delete_min(t_avltree *t)
 {
-	if (t != AVL_EMPTY)
+	t_avltree	to_free;
+	void		*retval;
+
+	if ((*t)->child[LEFT])
 	{
-		t->height = avltree_compute_height(t);
-		t->size = avltree_compute_size(t);
+		retval = avltree_delete_min(&(*t)->child[LEFT]);
 	}
+	else
+	{
+		to_free = *t;
+		retval = to_free->data;
+		*t = to_free->child[RIGHT];
+		free(to_free);
+	}
+	avltree_update_aggregate(*t);
+	avltree_rebalance(t);
+	return (retval);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   avltree_rebalance.c                                :+:      :+:    :+:   */
+/*   mmanager_avltree_rebalance.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:04:47 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/16 16:06:53 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/11/16 17:55:31 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * 	- rotate the taller child above.
 */
 
-void	avltree_rebalance(void	*t)
+void	mmanager_avltree_rebalance(t_avltree	*t)
 {
 	t_i32		direction;
 	t_avltree	taller_child;
@@ -36,7 +36,14 @@ void	avltree_rebalance(void	*t)
 				avltree_get_height(*t)->child[!direction] + 2)
 			{
 				taller_child = (*t)->child[direction];
-			} 
+				if (avltree_get_height(taller_child->child[!direction]) > \
+					avltree_get_height(taller_child->child[direction]))
+				{
+					avltree_rotate(&(*t)->child[direction], !direction);
+				}
+				avltree_rotate(t, direction);
+			}
+			direction++;
 		}
 	}
 }
