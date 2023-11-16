@@ -6,7 +6,7 @@
 #    By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 17:16:44 by bhildebr          #+#    #+#              #
-#    Updated: 2023/11/16 11:03:50 by bhildebr         ###   ########.fr        #
+#    Updated: 2023/11/16 11:28:02 by bhildebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,14 @@ clean:
 	$(RM) $(ASSERT_OBJECTS) $(BASIC_OBJECTS) $(STRING_OBJECTS)
 
 fclean: clean
-	$(RM) $(NAME)	
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: $(NAME) clean fclean re 
+norminette:
+	norminette
+
+test:
+# TODO
+
+.PHONY: $(NAME) clean fclean re norminette test
