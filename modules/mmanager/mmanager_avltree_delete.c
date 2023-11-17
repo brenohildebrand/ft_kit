@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 void	mmanager_avltree_delete(t_avltree *t, void *target)
 {
@@ -23,7 +23,7 @@ void	mmanager_avltree_delete(t_avltree *t, void *target)
 			free((void *)(*t)->data);
 			if ((*t)->child[RIGHT])
 			{
-				(*t)->data = avltree_delete_min(&(*t)->child[RIGHT]);
+				(*t)->data = mmanager_avltree_delete_min(&(*t)->child[RIGHT]);
 			}
 			else
 			{
@@ -34,7 +34,7 @@ void	mmanager_avltree_delete(t_avltree *t, void *target)
 		}
 		else
 		{
-			avltree_delete(&(*t)->child[(*t)->data < target], target);
+			mmanager_avltree_delete(&(*t)->child[(*t)->data < target], target);
 		}
 	}
 }

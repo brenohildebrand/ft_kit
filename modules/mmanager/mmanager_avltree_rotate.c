@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 /*
 *      y           x 
@@ -31,6 +31,6 @@ void	mmanager_avltree_rotate(t_avltree *t, t_i32 direction)
 	*t = x;
 	x->child[!direction] = y;
 	y->child[direction] = b;
-	avltree_update_aggregate(y);
-	avltree_update_aggregate(x);
+	mmanager_avltree_update_aggregate(y);
+	mmanager_avltree_update_aggregate(x);
 }

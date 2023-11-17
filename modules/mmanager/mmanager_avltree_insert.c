@@ -10,20 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
-void	mmanager_avltree_insert(t_avltree *t, void *data)
+void	*mmanager_avltree_insert(t_avltree *t, void *data)
 {
 	t_avltree	new;
 
 	if (*t == AVL_EMPTY)
 	{
-		new = malloc(sizeof(*new));
-		if (new == (void *)0)
-		{
-			avltree_destroy(t);
-			exit(1);
-		}
+		new = malloc(sizeof(struct s_avltree));
+		if (new == NULL)
+			return (NULL);
 		new->data = data;
 		new->child[RIGHT] = AVL_EMPTY;
 		new->child[LEFT] = AVL_EMPTY;
@@ -31,12 +28,14 @@ void	mmanager_avltree_insert(t_avltree *t, void *data)
 	}
 	else if ((*t)->data == data)
 	{
-		return ;
+		return (t);
 	}
 	else
 	{
-		avltree_insert(&(*t)->child[(*t)->data < data], data);
+		if (mmanager_avltree_insert(&(*t)->child[(*t)->data < data], data) == NULL)
+			return (NULL);
 	}
-	avltree_update_aggregate(*t);
-	avltree_rebalance(t);
+	mmanager_avltree_update_aggregate(*t);
+	mmanager_avltree_rebalance(t);
+	return (t);
 }

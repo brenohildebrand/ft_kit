@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 /**
  * The algorithm is:
@@ -32,16 +32,16 @@ void	mmanager_avltree_rebalance(t_avltree	*t)
 		direction = 0;
 		while (direction < 2)
 		{
-			if (avltree_get_height(*t)->child[direction] >= \
-				avltree_get_height(*t)->child[!direction] + 2)
+			if (mmanager_avltree_get_height((*t)->child[direction]) >= \
+				mmanager_avltree_get_height((*t)->child[!direction]) + 2)
 			{
 				taller_child = (*t)->child[direction];
-				if (avltree_get_height(taller_child->child[!direction]) > \
-					avltree_get_height(taller_child->child[direction]))
+				if (mmanager_avltree_get_height(taller_child->child[!direction]) > \
+					mmanager_avltree_get_height(taller_child->child[direction]))
 				{
-					avltree_rotate(&(*t)->child[direction], !direction);
+					mmanager_avltree_rotate(&(*t)->child[direction], !direction);
 				}
-				avltree_rotate(t, direction);
+				mmanager_avltree_rotate(t, direction);
 			}
 			direction++;
 		}

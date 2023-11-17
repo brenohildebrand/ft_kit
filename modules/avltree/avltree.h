@@ -17,6 +17,7 @@
 
 # define AVL_EMPTY (0)
 # define AVL_EMPTY_HEIGHT (-1)
+# define AVL_EMPTY_SIZE (0)
 # define LEFT (0)
 # define RIGHT (1)
 # define TREE_NUM_CHILDREN (2)

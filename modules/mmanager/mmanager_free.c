@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mmanager_avltree_update_aggregate.c                :+:      :+:    :+:   */
+/*   mmanager_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:53:44 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/16 17:56:37 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/17 11:45:55 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/17 11:45:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mmanager.h"
 
-void	mmanager_avltree_update_aggregate(t_avltree t)
+void	mmanager_free(void *p)
 {
-	if (t != AVL_EMPTY)
-	{
-		t->height = mmanager_avltree_compute_height(t);
-		t->size = mmanager_avltree_compute_size(t);
-	}
+	mmanager_avltree_delete(mmanager_get_avltree(), p);
 }

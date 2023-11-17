@@ -12,12 +12,18 @@
 
 #include "mmanager.h"
 
-int	mmanager_smalloc(size_t size)
+void	*mmanager_malloc(size_t size)
 {
 	void	*p;
-	
+
 	p = malloc(size);
 	if (p != NULL)
-		mmanager_avltree_insert(mmanager_get_avltree(), p);
+	{
+		if (mmanager_avltree_insert(mmanager_get_avltree(), p) == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
+	}
 	return (p);
 }

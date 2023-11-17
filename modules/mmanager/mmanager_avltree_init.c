@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mmanager_avltree_delete_min.c                      :+:      :+:    :+:   */
+/*   mmanager_avltree_init.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.sp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 16:50:37 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/16 17:53:42 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/11/17 16:16:39 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/11/17 16:16:39 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mmanager.h"
 
-void	*mmanager_avltree_delete_min(t_avltree *t)
+void	mmanager_avltree_init(t_avltree t)
 {
-	t_avltree	to_free;
-	void		*retval;
-
-	if ((*t)->child[LEFT])
-	{
-		retval = mmanager_avltree_delete_min(&(*t)->child[LEFT]);
-	}
-	else
-	{
-		to_free = *t;
-		retval = to_free->data;
-		*t = to_free->child[RIGHT];
-		free(to_free);
-	}
-	mmanager_avltree_update_aggregate(*t);
-	mmanager_avltree_rebalance(t);
-	return (retval);
+	t->data = NULL;
+	t->child[LEFT] = AVL_EMPTY;
+	t->child[RIGHT] = AVL_EMPTY;
+	t->height = AVL_EMPTY_HEIGHT;
+	t->size = AVL_EMPTY_SIZE;
 }

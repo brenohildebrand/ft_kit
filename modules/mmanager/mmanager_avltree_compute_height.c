@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 t_i32	mmanager_avltree_compute_height(const t_avltree t)
 {
@@ -28,7 +28,7 @@ t_i32	mmanager_avltree_compute_height(const t_avltree t)
 		direction = 0;
 		while (direction < 2)
 		{
-			child_height = avltree_get_height(t->child[direction]);
+			child_height = mmanager_avltree_get_height(t->child[direction]);
 			if (child_height > max_child_height)
 				max_child_height = child_height;
 			direction++;

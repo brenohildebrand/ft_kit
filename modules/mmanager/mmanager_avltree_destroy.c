@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 void	mmanager_avltree_destroy(t_avltree *t)
 {
@@ -21,10 +21,10 @@ void	mmanager_avltree_destroy(t_avltree *t)
 		direction = 0;
 		while (direction < 2)
 		{
-			avltree_destroy(&(*t)->child[direction]);
+			mmanager_avltree_destroy(&(*t)->child[direction]);
 			direction++;
 		}
-		free((void *)((*t->data)));
+		free((void *)((*t)->data));
 		free(*t);
 		*t = AVL_EMPTY;
 	}

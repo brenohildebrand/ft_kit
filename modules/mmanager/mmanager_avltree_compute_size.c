@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "avltree.h"
+#include "mmanager.h"
 
 t_i32	mmanager_avltree_compute_size(const t_avltree t)
 {
@@ -27,7 +27,7 @@ t_i32	mmanager_avltree_compute_size(const t_avltree t)
 		direction = 0;
 		while (direction < 2)
 		{
-			size += avltree_get_size(t->child[direction]);
+			size += mmanager_avltree_get_size(t->child[direction]);
 			direction++;
 		}
 		return (size);

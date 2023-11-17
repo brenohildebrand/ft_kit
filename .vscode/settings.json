@@ -1,5 +1,9 @@
 {
 	"files.associations": {
-		"avltree.h": "c"
-	}
+		"avltree.h": "c",
+		"mmanager.h": "c"
+	},
+	"42header.username": "bhildebr",
+	"42header.email": "bhildebr@student.42.sp",
+	"C_Cpp.errorSquiggles": "disabled"
 }
