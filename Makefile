@@ -19,29 +19,45 @@ ASSERT_DIR = ./modules/assert
 ASSERT_SOURCES = $(ASSERT_DIR)/assert.c
 ASSERT_OBJECTS = $(patsubst %.c, %.o, $(ASSERT_SOURCES))
 
+AVL_DIR = ./modules/avl
+AVL_SOURCES = $(AVL_DIR)/avl_compute_height.c \
+				  $(AVL_DIR)/avl_compute_size.c \
+				  $(AVL_DIR)/avl_delete_min.c \
+				  $(AVL_DIR)/avl_delete.c \
+				  $(AVL_DIR)/avl_destroy.c \
+				  $(AVL_DIR)/avl_get_height.c \
+				  $(AVL_DIR)/avl_get_size.c \
+				  $(AVL_DIR)/avl_init.c \
+				  $(AVL_DIR)/avl_insert.c \
+				  $(AVL_DIR)/avl_malloc.c \
+				  $(AVL_DIR)/avl_rebalance.c \
+				  $(AVL_DIR)/avl_rotate.c \
+				  $(AVL_DIR)/avl_update_aggregate.c
+AVL_OBJECTS = $(patsubst %.c, %.o, $(AVL_SOURCES))
+
 BASIC_DIR = ./modules/basic
 BASIC_SOURCES = 
 BASIC_OBJECTS = $(patsubst %.c, %.o, $(BASIC_SOURCES))
 
-MMANAGER_DIR = ./modules/mmanager
-MMANAGER_SOURCES = $(MMANAGER_DIR)/mmanager_avltree_compute_height.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_compute_size.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_delete_min.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_delete.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_destroy.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_get_height.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_get_size.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_init.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_insert.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_malloc.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_rebalance.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_rotate.c \
-				   $(MMANAGER_DIR)/mmanager_avltree_update_aggregate.c \
-				   $(MMANAGER_DIR)/mmanager_free_all.c \
-				   $(MMANAGER_DIR)/mmanager_free.c \
-				   $(MMANAGER_DIR)/mmanager_get_avltree.c \
-				   $(MMANAGER_DIR)/mmanager_malloc.c
-MMANAGER_OBJECTS = $(patsubst %.c, %.o, $(MMANAGER_SOURCES))
+GC_DIR = ./modules/gc
+GC_SOURCES = $(GC_DIR)/gc_avl_compute_height.c \
+				   $(GC_DIR)/gc_avl_compute_size.c \
+				   $(GC_DIR)/gc_avl_delete_min.c \
+				   $(GC_DIR)/gc_avl_delete.c \
+				   $(GC_DIR)/gc_avl_destroy.c \
+				   $(GC_DIR)/gc_avl_get_height.c \
+				   $(GC_DIR)/gc_avl_get_size.c \
+				   $(GC_DIR)/gc_avl_init.c \
+				   $(GC_DIR)/gc_avl_insert.c \
+				   $(GC_DIR)/gc_avl_malloc.c \
+				   $(GC_DIR)/gc_avl_rebalance.c \
+				   $(GC_DIR)/gc_avl_rotate.c \
+				   $(GC_DIR)/gc_avl_update_aggregate.c \
+				   $(GC_DIR)/gc_free_all.c \
+				   $(GC_DIR)/gc_free.c \
+				   $(GC_DIR)/gc_get_avl.c \
+				   $(GC_DIR)/gc_malloc.c
+GC_OBJECTS = $(patsubst %.c, %.o, $(GC_SOURCES))
 
 STRING_DIR = ./modules/string
 STRING_SOURCES = $(STRING_DIR)/string_print.c
@@ -49,25 +65,26 @@ STRING_OBJECTS = $(patsubst %.c, %.o, $(STRING_SOURCES))
 
 all: $(NAME)
 
-$(NAME): $(ASSERT_OBJECTS) $(BASIC_OBJECTS) $(MMANAGER_OBJECTS) $(STRING_OBJECTS)
+$(NAME): $(ASSERT_OBJECTS) $(AVL_OBJECTS) $(BASIC_OBJECTS) $(GC_OBJECTS) $(STRING_OBJECTS)
 	ar rcs $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(ASSERT_OBJECTS) $(BASIC_OBJECTS) $(MMANAGER_OBJECTS) $(STRING_OBJECTS)
+	$(RM) $(ASSERT_OBJECTS) $(AVL_OBJECTS) $(BASIC_OBJECTS) $(GC_OBJECTS) $(STRING_OBJECTS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-norminette:
+norm:
 	norminette
 
 test: $(NAME)
-	@printf "[RUNNING TESTS]\n"
-	@cc tests/mmanager.test.c libkit.a -o test; ./test; if [ $$? -eq "0" ]; then printf "MMANAGER: OK\n"; else printf "MMANAGER: KO\n"; fi
+	@cc tests/avl.test.c libkit.a -o test; ./test; if [ $$? -eq "0" ]; then printf "AVL:\tOK\n"; else printf "AVL:\tKO\n"; fi
+	@cc tests/basic.test.c libkit.a -o test; ./test; if [ $$? -eq "0" ]; then printf "BASIC:\tOK\n"; else printf "BASIC:\tKO\n"; fi
+	@cc tests/gc.test.c libkit.a -o test; ./test; if [ $$? -eq "0" ]; then printf "GC:\tOK\n"; else printf "GC:\tKO\n"; fi
 
-.PHONY: all clean fclean re norminette test
+.PHONY: all clean fclean re norm test

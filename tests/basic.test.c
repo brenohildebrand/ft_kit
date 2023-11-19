@@ -14,8 +14,12 @@
 #include "../modules/string/string.h"
 #include "../modules/assert/assert.h"
 
-void	basic_assert(void)
+int	main(void)
 {
+	/**
+	 * F00
+	 * Test whether the types are guaranteed to be the predetermined size.
+	*/
 	struct s_string	message;
 
 	message.data = (t_u8 *)"Oops! An error ocurred while asserting the t_i8 type.\n";
@@ -39,10 +43,6 @@ void	basic_assert(void)
 	message.data = (t_u8 *)"Oops! An error ocurred while asserting the t_f64 type.\n";
 	message.size = 56;
 	assert(sizeof(t_f64) == 8, message);
-}
 
-int	main(void)
-{
-	basic_assert();
 	return (0);
 }
