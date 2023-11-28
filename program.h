@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer.h                                           :+:      :+:    :+:   */
+/*   program.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:49:16 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/23 10:49:16 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/28 04:07:27 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/28 04:07:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUFFER_H
-# define BUFFER_H
+#ifndef PROGRAM_H
+# define PROGRAM_H
 
+# include "buffer.h"
+# include "character.h"
 # include "memory.h"
-
-typedef struct s_buffer	*t_buffer;
-
-struct s_buffer {
-	unsigned int	size;
-	t_memory		address;
-};
-
-t_buffer	buffer_copy(t_buffer buffer);
-t_buffer	buffer_create(unsigned int size);
-void		buffer_destroy(t_buffer buffer);
-void		buffer_realloc(t_buffer buffer, unsigned int new_size);
-void		buffer_set(t_buffer buffer, unsigned char value);
+# include "number.h"
 
 #endif

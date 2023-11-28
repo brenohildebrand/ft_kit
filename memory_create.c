@@ -16,10 +16,10 @@ t_memory	memory_create(unsigned int size)
 {
 	t_memory	memory;
 
-	memory = malloc(sizeof(struct s_memory));
+	memory = malloc(size);
 	if (memory == (void *)0)
 	{
-		write(1, "Whew. An error ocurred while trying to create memory.\n", 55);
+		write(1, "Whew. An error ocurred on memory_create.\n", 42);
 		exit(255);
 	}
 	return (memory);

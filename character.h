@@ -13,7 +13,7 @@
 #ifndef CHARACTER_H
 # define CHARACTER_H
 
-# include "../memory/memory.h"
+# include "memory.h"
 
 typedef char	*t_character;
 

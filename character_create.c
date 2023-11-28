@@ -14,7 +14,7 @@
 
 t_character	character_create(void)
 {
-	t_character character;
+	t_character	character;
 
 	character = (t_character)memory_create(sizeof(char));
 	*((char *)(character)) = '\0';

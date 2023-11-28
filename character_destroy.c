@@ -14,7 +14,6 @@
 
 void	character_destroy(t_character character)
 {
-	*(char *)(character->data) = '\0';
-	memory_destroy(character->data);
+	*(char *)(character) = '\0';
 	memory_destroy(character);
 }

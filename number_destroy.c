@@ -14,7 +14,6 @@
 
 void	number_destroy(t_number number)
 {
-	*(double *)(number->data) = 0.0;
-	memory_destroy(number->data);
+	*((double *)number) = 0.0;
 	memory_destroy(number);
 }

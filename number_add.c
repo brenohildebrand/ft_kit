@@ -14,6 +14,6 @@
 
 void	number_add(t_number number, t_number another_number)
 {
-	*((double *)(number->data)) += \
-		*(double *)(another_number->data);
+	*((double *)(number)) += \
+		*((double *)(another_number));
 }

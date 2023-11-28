@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer_create.c                                    :+:      :+:    :+:   */
+/*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 11:16:29 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/23 11:16:29 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/28 04:07:40 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/28 04:07:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "buffer.h"
+#include "program.h"
 
-t_buffer	buffer_create(unsigned int size)
+int	main(void)
 {
-	t_buffer	buffer;
-
-	buffer = (t_buffer)memory_create(sizeof(struct s_buffer));
-	buffer->size = size;
-	buffer->address = (t_memory)memory_create(buffer->size);
-	return (buffer);
+	return (0);
 }
