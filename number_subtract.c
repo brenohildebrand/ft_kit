@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character.h                                        :+:      :+:    :+:   */
+/*   number_subtract.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 18:01:52 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/22 18:01:52 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/04 08:23:48 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/04 08:31:25 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_H
-# define CHARACTER_H
+#include "number.h"
 
-# include "../memory/memory.h"
-
-typedef char	*t_character;
-
-t_character	character_create(void);
-void		character_destroy(t_character character);
-
-#endif
+void	number_subtract(t_number number, t_number another_number)
+{
+	*((double *)(number)) -= \
+		*((double *)(another_number));
+}

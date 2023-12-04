@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   number_create.c                                    :+:      :+:    :+:   */
+/*   number_divide.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 15:56:39 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/21 15:56:39 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/04 08:25:18 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/04 08:25:45 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "number.h"
 
-t_number	number_create(void)
+void	number_divide(t_number number, t_number another_number)
 {
-	t_number	number;
-
-	number = (t_number)memory_create(sizeof(struct s_number));
-	number->data = memory_create(sizeof(double));
-	*((double *)(number->data)) = 0.0;
-	return (number);
+	*((double *)(number)) /= \
+		*((double *)(another_number));
 }

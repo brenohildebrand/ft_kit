@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character_destroy.c                                :+:      :+:    :+:   */
+/*   number_multiply.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 18:12:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/22 18:12:07 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/04 08:24:42 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/04 08:25:05 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "character.h"
+#include "number.h"
 
-void	character_destroy(t_character character)
+void	number_multiply(t_number number, t_number another_number)
 {
-	*(char *)(character->data) = '\0';
-	memory_destroy(character->data);
-	memory_destroy(character);
+	*((double *)(number)) *= \
+		*((double *)(another_number));
 }
