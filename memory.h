@@ -20,6 +20,5 @@ typedef void	*t_memory;
 
 t_memory	memory_create(unsigned int size);
 void		memory_destroy(t_memory memory);
-int			memory_test(void);
 
 #endif

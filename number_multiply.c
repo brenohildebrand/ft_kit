@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program_test.c                                     :+:      :+:    :+:   */
+/*   number_multiply.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 04:17:19 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/28 04:42:11 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/12/04 08:24:42 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/04 08:25:05 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "program.h"
+#include "number.h"
 
-int	program_test(void)
+void	number_multiply(t_number number, t_number another_number)
 {
-	return (
-		memory_test() && \
-		1
-	);
+	*((double *)(number)) *= \
+		*((double *)(another_number));
 }

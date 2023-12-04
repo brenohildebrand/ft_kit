@@ -31,11 +31,12 @@ SOURCES = \
 	character_destroy.c \
 	memory_create.c \
 	memory_destroy.c \
-	memory_test.c \
+	number_divide.c \
+	number_multiply.c \
+	number_subtract.c \
 	number_add.c \
 	number_create.c \
 	number_destroy.c \
-	program_test.c \
 	program.c
 OBJECTS = \
 	buffer_copy.o \
@@ -47,26 +48,27 @@ OBJECTS = \
 	character_destroy.o \
 	memory_create.o \
 	memory_destroy.o \
-	memory_test.o \
 	number_add.o \
 	number_create.o \
 	number_destroy.o \
-	program_test.o \
+	number_divide.o \
+	number_multiply.o \
+	number_subtract.o \
 	program.o
 
 all: norm $(NAME)
 
 norm:
-	@norminette $(HEADERS) $(SOURCES)
+	norminette $(HEADERS) $(SOURCES)
 
 $(NAME): $(OBJECTS)
-	@cc -o $(NAME) $(OBJECTS)
+	cc -o $(NAME) $(OBJECTS)
 
 clean:
-	@$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS)
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

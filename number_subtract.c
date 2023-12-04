@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_test.c                                      :+:      :+:    :+:   */
+/*   number_subtract.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 04:16:45 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/11/28 04:40:50 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/12/04 08:23:48 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/04 08:31:25 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory.h"
+#include "number.h"
 
-int	memory_test(void)
+void	number_subtract(t_number number, t_number another_number)
 {
-	t_memory		memory;
-	unsigned int	i;
-
-	i = 0;
-	while (i < 100)
-	{
-		memory = memory_create(i);
-		memory_destroy(memory);
-		i++;
-	}
-	return (0);
+	*((double *)(number)) -= \
+		*((double *)(another_number));
 }
