@@ -14,5 +14,10 @@
 
 int	main(void)
 {
+	t_integer	pid;
+
+	pid = integer_create();
+	integer_set(pid, getpid());
+	integer_print(pid);
 	return (0);
 }

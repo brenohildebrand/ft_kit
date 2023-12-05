@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer.h                                           :+:      :+:    :+:   */
+/*   dmemory_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:49:16 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/23 10:49:16 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/23 11:16:29 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/23 11:16:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUFFER_H
-# define BUFFER_H
+#include "dmemory.h"
 
-# include "memory.h"
+t_dmemory	dmemory_create(unsigned int size)
+{
+	t_dmemory	dmemory;
 
-typedef struct s_buffer	*t_buffer;
-
-struct s_buffer {
-	unsigned int	size;
-	t_memory		address;
-};
-
-t_buffer	buffer_copy(t_buffer buffer);
-t_buffer	buffer_create(unsigned int size);
-void		buffer_destroy(t_buffer buffer);
-void		buffer_realloc(t_buffer buffer, unsigned int new_size);
-void		buffer_set(t_buffer buffer, unsigned char value);
-
-#endif
+	dmemory = (t_dmemory)memory_create(sizeof(struct s_dmemory));
+	dmemory->size = size;
+	dmemory->address = (t_memory)memory_create(dmemory->size);
+	return (dmemory);
+}

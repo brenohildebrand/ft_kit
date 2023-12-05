@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:59:46 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 13:02:18 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:32:39 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,21 @@
 
 void	string_realloc(t_string string, unsigned int new_size)
 {
-	t_string		new_string;
-	unsigned int	i;
+	char			*new_address;
+	unsigned int	copy_until_this_index;
 
-	new_string = string_create(new_size);
-	i = 0;
+	new_address = memory_create(new_size);
 	if (new_size >= string->size)
-	{
-		while (i < string->size)
-		{
-			new_string->address[i] = string->address[i];
-			i++;
-		}
-	}
+		copy_until_this_index = string->size;
 	else
 	{
-		while (i < new_size)
-		{
-			new_string->address[i] = string->address[i];
-			i++;
-		}
+		copy_until_this_index = new_size;
+		string->length = new_size - 1;		
 	}
-	new_string->address[new_size] = '\0';
-	return (new_string);
+	while (copy_until_this_index--)
+		new_address[copy_until_this_index] = \
+			string->address[copy_until_this_index];
+	string->address[string->length] = 0;
+	string->size = new_size;
+	string->address = new_address;
 }

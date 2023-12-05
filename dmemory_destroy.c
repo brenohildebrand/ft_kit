@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer_create.c                                    :+:      :+:    :+:   */
+/*   dmemory_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 11:16:29 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/23 11:16:29 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/23 11:19:02 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/23 11:19:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "buffer.h"
+#include "dmemory.h"
 
-t_buffer	buffer_create(unsigned int size)
+void	dmemory_destroy(t_dmemory dmemory)
 {
-	t_buffer	buffer;
-
-	buffer = (t_buffer)memory_create(sizeof(struct s_buffer));
-	buffer->size = size;
-	buffer->address = (t_memory)memory_create(buffer->size);
-	return (buffer);
+	dmemory_set(dmemory, 0);
+	dmemory->size = 0;
+	memory_destroy(dmemory->address);
+	memory_destroy(dmemory);
 }

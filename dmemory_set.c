@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer_copy.c                                      :+:      :+:    :+:   */
+/*   dmemory_set.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:31:35 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/23 16:31:35 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/23 16:26:29 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/23 16:26:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "buffer.h"
+#include "dmemory.h"
 
-t_buffer	buffer_copy(t_buffer buffer)
+void	dmemory_set(t_dmemory dmemory, unsigned char value)
 {
-	t_buffer		another_buffer;
 	unsigned int	i;
 
-	another_buffer = buffer_create(buffer->size);
 	i = 0;
-	while (i < buffer->size)
+	while (i < dmemory->size)
 	{
-		((unsigned char *)(another_buffer->address))[i] = \
-			((unsigned char *)(buffer->address))[i];
+		((unsigned char *)(dmemory->address))[i] = value;
 		i++;
 	}
-	return (another_buffer);
 }

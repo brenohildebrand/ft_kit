@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 09:30:20 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 12:59:03 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:13:17 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 # define STRING_H
 
 # include "character.h"
+# include "dmemory.h"
+# include <unistd.h>
 
 typedef struct s_string	*t_string;
 
 struct s_string {
+	unsigned int	length;
 	unsigned int	size;
-	t_character		address;
+	char			*address;	
 };
 
 t_string	string_copy(t_string string);
-t_string	string_create(unsigned int size);
+t_string	string_create(void);
 void		string_destroy(t_string string);
 void		string_realloc(t_string string, unsigned int new_size);
 void		string_set(t_string string, t_character value);
+void		string_append_character(t_string string, t_character character);
+void		string_prepend_character(t_string string, t_character character);
+void		string_append_string(t_string string, t_string another_string);
+void		string_prepend_string(t_string string, t_string another_string);
+void		string_print(t_string string);
 
 #endif

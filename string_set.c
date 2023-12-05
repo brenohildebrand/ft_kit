@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:23:36 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 12:58:31 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:44:44 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,8 @@ void	string_set(t_string string, t_character value)
 	new_length = 0;
 	while (value[new_length])
 		new_length++;
-	if (new_length + 1 > string->size)
+	string_realloc(string, new_length);
+	string->address[new_length] = 0;
+	while (new_length--)
+		string->address[new_length] = value[new_length];
 }

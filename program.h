@@ -13,8 +13,9 @@
 #ifndef PROGRAM_H
 # define PROGRAM_H
 
-# include "buffer.h"
+# include "dmemory.h"
 # include "character.h"
+# include "integer.h"
 # include "memory.h"
 # include "number.h"
 

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_create.c                                    :+:      :+:    :+:   */
+/*   string_append_character.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 10:21:44 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 17:38:45 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/12/04 16:18:29 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/05 10:03:50 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string.h"
 
-t_string	string_create(void)
+void	string_append_character(t_string string, t_character character)
 {
-	t_string	string;
-
-	string = memory_create(sizeof(struct s_string));
-	string->size = 1;
-	string->length = 0;
-	string->address = memory_create(string->size);
-	*(string->address) = '\0';
-	return (string);
+	if (string->length + 2 > string->size)
+		string_realloc(string, string->size + 1);
+	string->address[string->length] = character;
+	string->address[string->length + 1] = '\0';
+	string->length += 1;
 }
