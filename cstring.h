@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_set.c                                       :+:      :+:    :+:   */
+/*   cstring.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 11:23:36 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/06 13:03:39 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/12/06 13:04:04 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/06 13:08:49 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#ifndef CSTRING_H
+# define CSTRING_H
 
-void	string_set(t_string string, char *value)
-{
-	t_length		new_length;
+typedef struct s_cstring	*t_cstring;
 
-	new_length = string_get_length();
-	while (value[new_length])
-		new_length++;
-	string_realloc(string, new_length);
-	string->address[new_length] = 0;
-	while (new_length--)
-		string->address[new_length] = value[new_length];
-}
+struct s_cstring {
+	char	*value;
+};
+
+t_cstring	cstring_create(void);
+void		cstring_destroy(t_cstring cstring);
+
+#endif

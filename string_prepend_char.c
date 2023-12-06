@@ -6,13 +6,13 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:47:35 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/06 12:49:45 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:53:11 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string.h"
 
-void	string_prepend_char(t_string string, char character)
+void	string_prepend_char(t_string string, char value)
 {
 	unsigned int	i;
 
@@ -25,6 +25,6 @@ void	string_prepend_char(t_string string, char character)
 		i--;
 	}
 	string->address[1] = string->address[0];
-	string->address[0] = character;
+	string->address[0] = value;
 	string->length += 1;
 }

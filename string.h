@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 09:30:20 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/06 12:47:27 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:00:30 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "character.h"
 # include "dmemory.h"
+# include "length.h"
 # include <unistd.h>
 
 typedef struct s_string	*t_string;
@@ -39,6 +40,6 @@ void		string_insert(
 				t_string string,
 				unsigned int position,
 				t_character character);
-void		string_prepend_char(t_string string, t_character character);
+void		string_prepend_char(t_string string, char value);
 
 #endif

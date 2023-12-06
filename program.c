@@ -14,10 +14,11 @@
 
 int	main(void)
 {
-	t_integer	pid;
+	t_string	message;
 
-	pid = integer_create();
-	integer_set(pid, getpid());
-	integer_print(pid);
+	message = string_create();
+	string_set(message, "Welcome to the Kit.\n");
+	string_print(message);
+	string_destroy(message);
 	return (0);
 }
