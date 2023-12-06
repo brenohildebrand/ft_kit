@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 16:17:01 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/21 16:17:01 by marvin           ###   ########.fr       */
+/*   Created: 2023/12/06 13:13:43 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/06 13:18:42 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_memory	memory_create(unsigned int size)
 	memory = malloc(size);
 	if (memory == (void *)0)
 	{
-		write(1, "Whew. An error ocurred on memory_create.\n", 42);
+		write(1, "Oops! An error ocurred.\n", 25);
 		exit(255);
 	}
 	return (memory);
