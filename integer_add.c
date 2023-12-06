@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:36:09 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 15:37:06 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:50:43 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	integer_add(t_integer integer, t_integer another_integer)
 {
-	*integer += *another_integer;
+	integer->value += another_integer->value;
 }

@@ -15,9 +15,14 @@
 
 # include "memory.h"
 
-typedef char	*t_character;
+typedef struct s_character	*t_character;
+
+struct s_character {
+	char	value;
+};
 
 t_character	character_create(void);
 void		character_destroy(t_character character);
+void		character_set(t_character character, char value);
 
 #endif

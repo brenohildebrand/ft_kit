@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:59:46 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/04 19:32:39 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:26:38 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	string_realloc(t_string string, unsigned int new_size)
 	else
 	{
 		copy_until_this_index = new_size;
-		string->length = new_size - 1;		
+		string->length = new_size - 1;
 	}
 	while (copy_until_this_index--)
 		new_address[copy_until_this_index] = \

@@ -6,7 +6,7 @@
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:58:23 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/05 10:04:06 by bhildebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:48:08 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	string_prepend_character(t_string string, t_character character)
 		i--;
 	}
 	string->address[1] = string->address[0];
-	string->address[0] = character;
+	string->address[0] = character->value;
 	string->length += 1;
 }
