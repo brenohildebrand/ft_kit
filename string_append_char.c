@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_create.c                                    :+:      :+:    :+:   */
+/*   string_add_char.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhildebr <bhildebr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 13:13:43 by bhildebr          #+#    #+#             */
-/*   Updated: 2023/12/08 10:24:52 by bhildebr         ###   ########.fr       */
+/*   Created: 2023/12/08 10:48:41 by bhildebr          #+#    #+#             */
+/*   Updated: 2023/12/08 12:20:07 by bhildebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory.h"
+#include "string.h"
 
-#ifdef DEBUG
-
-t_memory	memory_create(unsigned int size)
+void	string_append_char(t_string *string, char character)
 {
-	return (0);	
+	if ((*string)->length + 2 > (*string)->size)
+		(*string) = string_realloc(*string);
+	(*string)->content[(*string)->length] = character;
+	(*string)->length++;
+	(*string)->content[(*string)->length] = '\0';
 }
-
-#else
-
-t_memory	memory_create(unsigned int size)
-{
-	t_memory	memory;
-
-	memory = malloc(size);
-	if (memory == (void *)0)
-	{
-		write(1, "Oops! An error ocurred.\n", 25);
-		exit(255);
-	}
-	return (memory);
-}
-
-#endif
-
