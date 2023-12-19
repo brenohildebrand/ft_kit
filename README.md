@@ -9,3 +9,7 @@ Consider this kit as a template. Just clone it and be productive.
 ```bash
 git clone https://www.github.com/brenohildebrand/ft_kit
 ```
+
+## Extra
+
+Got an issue? Submit it. I'll check as soon as I see it.

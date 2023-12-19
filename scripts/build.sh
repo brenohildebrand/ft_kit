@@ -1,32 +1,18 @@
 #!/bin/bash
 
-MAKEFILE = '
-NAME = #NAME
+if [ $# -ne 1 ]; then
+	echo "Usage: $0 <program>"
+	exit 1
+fi
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+PROGRAM=$1
 
-HEADERS = \
-	#HEADERS
-SOURCES = \
-	#SOURCES
-OBJECTS = \
-	#OBJECTS
+MODULE_PATHS=($(echo modules/* | tr " " "\n"))
 
-all: norm $(NAME)
+IQUOTE_OPTIONS=''
+for MODULE_PATH in "${MODULE_PATHS[@]}"; do
+	IQUOTE_OPTIONS+=" -iquote $MODULE_PATH"
+done
 
-norm:
-	norminette $(HEADERS) $(SOURCES)
-
-$(NAME): $(OBJECTS)
-	cc -o $(NAME) $(OBJECTS)
-
-clean:
-	$(RM) $(OBJECTS)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: all norm clean fclean re'
+mkdir -p ./build
+gcc -Wall -Wextra -Werror ${IQUOTE_OPTIONS} -iquote programs/${PROGRAM} modules/**/*.c programs/${PROGRAM}/*.c -o build/${PROGRAM} -g
